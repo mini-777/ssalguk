@@ -42,7 +42,15 @@ export default function App() {
     Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
     InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
   });
+  React.useEffect(() => {
+    if (loaded) {
+      // can hide splash screen here
+    }
+  }, [loaded]);
 
+  if (!loaded) {
+    return null;
+  }
   return (
     <TamaguiProvider config={config}>
       <NavigationContainer theme={MainTheme}>
