@@ -53,3 +53,46 @@ export function ScreenTimeCardTypeB(props: CardProps) {
     </Card>
   );
 }
+export function ScreenTimeCardTypeC(props: CardProps) {
+  return (
+    <Card elevate size='$4' bordered {...props} pt={5} backgroundColor={'#fff'}>
+      <Card.Header padded>
+        <XStack space={5}>
+          <Stack justifyContent='center'>
+            <Image
+              source={{
+                uri: require('../assets/img/ticktok_logo.png'),
+              }}
+              w={50}
+              h={50}
+            />
+          </Stack>
+          <YStack>
+            <H4>1시간</H4>
+            <Paragraph theme='alt2'>YouTube</Paragraph>
+          </YStack>
+        </XStack>
+      </Card.Header>
+
+      <Card.Background></Card.Background>
+    </Card>
+  );
+}
+export function ScreenTimeCardTypeD(props: CardProps) {
+  return (
+    <Card elevate size='$4' bordered {...props} pt={5} backgroundColor={'#fff'}>
+      <Card.Header padded>
+        <Image
+          source={{
+            uri: require('../assets/img/instagram_logo.png'),
+          }}
+          w={50}
+          h={35}
+          marginBottom={20}
+        />
+        <H4>1시간 30분</H4>
+        <Paragraph theme='alt2'>틱톡</Paragraph>
+      </Card.Header>
+    </Card>
+  );
+}

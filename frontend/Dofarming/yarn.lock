@@ -2606,6 +2606,13 @@
     "@tamagui/use-controllable-state" "1.76.0"
     reforest "^0.13.0"
 
+"@tamagui/helpers-icon@1.76.0":
+  version "1.76.0"
+  resolved "https://registry.yarnpkg.com/@tamagui/helpers-icon/-/helpers-icon-1.76.0.tgz#b7658fbb27b21e473b21f1e25a058fad290fd711"
+  integrity sha512-DL3fSNfoNqY+qrFFsg+WGitwP4mudWORHI8J53AQjoDSUvrMjMWIh/tscv+zGhLAyIL0geteZszPx7eeXYfGwA==
+  dependencies:
+    "@tamagui/core" "1.76.0"
+
 "@tamagui/helpers-node@1.76.0":
   version "1.76.0"
   resolved "https://registry.yarnpkg.com/@tamagui/helpers-node/-/helpers-node-1.76.0.tgz#c7c37e226bf23ab7fc4db5901dec2844639fb3c8"
@@ -2668,6 +2675,14 @@
     "@tamagui/helpers-tamagui" "1.76.0"
     "@tamagui/text" "1.76.0"
     "@tamagui/web" "1.76.0"
+
+"@tamagui/lucide-icons@^1.76.0":
+  version "1.76.0"
+  resolved "https://registry.yarnpkg.com/@tamagui/lucide-icons/-/lucide-icons-1.76.0.tgz#ff3f9992fafda2aa1a6e770f9061f960a92efc45"
+  integrity sha512-5VgCI50Cz0ocjtrYKUDM+BPgRRe8BhS5rL7P/Sb8tU3Vdfh2SEvbatJriOJktSGerr7h7yjo49oP6Jd75d7urw==
+  dependencies:
+    "@tamagui/core" "1.76.0"
+    "@tamagui/helpers-icon" "1.76.0"
 
 "@tamagui/normalize-css-color@1.76.0":
   version "1.76.0"
@@ -6219,6 +6234,11 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
+
+moment@^2.29.4:
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
 
 moti@^0.25.3:
   version "0.25.4"
