@@ -14,6 +14,7 @@ import {
   XStack,
   Button,
   H2,
+  Separator,
 } from 'tamagui';
 import {
   ScreenTimeCardTypeA,
@@ -48,16 +49,22 @@ const Home = () => {
   return (
     <BottomSheetModalProvider>
       <SafeAreaView style={styles.container}>
-        <ScrollView>
+        <Stack flex={2}>
           <Calendar onSelectDate={setSelectedDate} selected={selectedDate} />
-          <Stack w={'100%'} h={'300'}>
-            <Rings />
-          </Stack>
-          <ToDoList />
 
-          <AIRecommendCard />
-          <Button onPress={handlePresentModalPress}>Show Modal</Button>
-        </ScrollView>
+          <Rings />
+          <Stack alignItems='center'>
+            <Separator w={'85%'} />
+          </Stack>
+        </Stack>
+        <Stack flex={3}>
+          <YStack space alignItems='center'>
+            <ToDoList />
+            <AIRecommendCard />
+            <Button onPress={handlePresentModalPress}>Show Modal</Button>
+          </YStack>
+        </Stack>
+
         <BottomSheetModal
           ref={bottomSheetModalRef}
           index={1}

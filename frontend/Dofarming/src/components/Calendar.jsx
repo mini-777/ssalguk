@@ -82,6 +82,6 @@ const styles = StyleSheet.create({
   },
   scroll: {
     alignItems: 'center',
-    height: 100,
+    height: 80,
   },
 });
