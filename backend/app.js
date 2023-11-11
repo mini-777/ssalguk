@@ -1,28 +1,25 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const mysql = require("mysql2");
+const mysql = require("mysql");
 
 const app = express();
+
+app.listen(3000, function(){
+  console.log('연결 완료')
+})
 
 const connection = mysql.createConnection({
     host: 'dofaming-mysql.co4ylmymttoe.ap-northeast-2.rds.amazonaws.com',
     user: 'root',
+    database: 'dofamingdb',
     password: 'Tkfrnrtn',
-    database: 'dofamingdb'
+    port: 3306
 });
 
-connection.connect((err) => {
-    if (err) {
-      console.error('MySQL 연결 오류:', err);
-      return;
-    }
-    console.log('MySQL database 연결 성공!!');
-  });
-
-  connection.end((err) => {
-    if (err) {
-      console.error('MySQL 연결 해제 오류:', err);
-      return;
-    }
-    console.log('MySQL database 연결 해제 성공!!');
-  });
+// connection.connect((err) => {
+//     if (err) {
+//       console.error('MySQL 연결 오류:', err);
+//       return;
+//     }
+//     console.log('MySQL database 연결 성공!!');
+//   });
