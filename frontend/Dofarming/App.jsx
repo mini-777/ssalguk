@@ -12,7 +12,19 @@ import { ChevronLeftIcon } from 'lucide-react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/screens/Home';
-
+import {
+  Page1,
+  Page10,
+  Page2,
+  Page3,
+  Page4,
+  Page5,
+  Page6,
+  Page7,
+  Page8,
+  Page9,
+} from './src/components/Question';
+import Start from './src/screens/Start';
 const Stack = createNativeStackNavigator();
 
 const HeaderLeft = () => {
@@ -60,6 +72,83 @@ export default function App() {
               headerLeft: HeaderLeft,
             }}
           >
+            <Stack.Screen
+              name='Start'
+              component={Start}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='Q1'
+              component={Page1}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='Q2'
+              component={Page2}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='Q3'
+              component={Page3}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='Q4'
+              component={Page4}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='Q5'
+              component={Page5}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='Q6'
+              component={Page6}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='Q7'
+              component={Page7}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='Q8'
+              component={Page8}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='Q9'
+              component={Page9}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='Q10'
+              component={Page10}
+              options={{
+                headerShown: false,
+              }}
+            />
             <Stack.Screen
               name='Home'
               component={Home}
