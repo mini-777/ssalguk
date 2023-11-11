@@ -24,6 +24,10 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Calendar from '../components/Calendar';
 import { Layers } from '@tamagui/lucide-icons';
+import { Rings } from '../components/Rings';
+import { ToDoList } from '../components/ToDoList';
+import { AIRecommendCard } from '../components/AIRecommendCard';
+
 const Home = () => {
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -44,8 +48,16 @@ const Home = () => {
   return (
     <BottomSheetModalProvider>
       <SafeAreaView style={styles.container}>
-        <Calendar onSelectDate={setSelectedDate} selected={selectedDate} />
-        <Button onPress={handlePresentModalPress}>Show Modal</Button>
+        <ScrollView>
+          <Calendar onSelectDate={setSelectedDate} selected={selectedDate} />
+          <Stack w={'100%'} h={'300'}>
+            <Rings />
+          </Stack>
+          <ToDoList />
+
+          <AIRecommendCard />
+          <Button onPress={handlePresentModalPress}>Show Modal</Button>
+        </ScrollView>
         <BottomSheetModal
           ref={bottomSheetModalRef}
           index={1}

@@ -33,7 +33,7 @@ const Date = ({ date, onSelectDate, selected }) => {
           selected === fullDate && {
             color: '#fff',
             fontWeight: 'bold',
-            fontSize: 24,
+            fontSize: 17,
           },
         ]}
       >
@@ -54,14 +54,14 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     alignItems: 'center',
     height: 70,
-    width: 50,
+    width: 40,
     marginHorizontal: 5,
   },
   big: {
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: 13,
   },
   medium: {
-    fontSize: 20,
+    fontSize: 16,
   },
 });

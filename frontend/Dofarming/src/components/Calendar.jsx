@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import moment from 'moment';
 import Date from './Date';
 import 'moment/locale/ko';
+import { XStack } from 'tamagui';
 
 const Calendar = ({ onSelectDate, selected }) => {
   const [dates, setDates] = useState([]);
@@ -48,13 +49,7 @@ const Calendar = ({ onSelectDate, selected }) => {
       </View>
       <View style={styles.dateSection}>
         <View style={styles.scroll}>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            // onScroll is a native event that returns the number of pixels the user has scrolled
-            onScroll={(e) => setScrollPosition(e.nativeEvent.contentOffset.x)}
-            scrollEventThrottle={16}
-          >
+          <XStack>
             {dates.map((date, index) => (
               <Date
                 key={index}
@@ -63,7 +58,7 @@ const Calendar = ({ onSelectDate, selected }) => {
                 selected={selected}
               />
             ))}
-          </ScrollView>
+          </XStack>
         </View>
       </View>
     </>
@@ -86,6 +81,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   scroll: {
+    alignItems: 'center',
     height: 100,
   },
 });
