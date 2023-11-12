@@ -77,7 +77,7 @@ const Home = () => {
           <ToDoList />
 
           <YStack space alignItems='center'>
-            {toDoListAi === '' ? (
+            {toDoListAi ? (
               <AIRecommendCard text={toDoListAi} />
             ) : (
               <Spinner size='small' color='$green10' />
