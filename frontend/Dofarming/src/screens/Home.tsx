@@ -36,6 +36,7 @@ const Home = () => {
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const [toDoListAi, setToDoListAi] = React.useState(null);
+  const [screenTimeAi, setScreenTimeAi] = React.useState(null);
   // variables
   const snapPoints = useMemo(() => ['25%', '75%'], []);
   const [selectedDate, setSelectedDate] = React.useState(null);
@@ -56,6 +57,16 @@ const Home = () => {
       .then((res) => {
         console.log(res.data.answer.message.content);
         setToDoListAi(res.data.answer.message.content);
+      });
+  }, []);
+  useEffect(() => {
+    axios
+      .post('https://dofarming-admin-1471.vercel.app/api/ai/todolist', {
+        user_id: 1,
+      })
+      .then((res) => {
+        console.log(res.data.answer.message.content);
+        setScreenTimeAi(res.data.answer.message.content);
       });
   }, []);
   // renders
@@ -176,9 +187,18 @@ const Home = () => {
                 </XStack>
               </YStack>
               <Stack marginTop={30} w={'90%'} marginBottom={50}>
-                <Button alignSelf='center' size={'$7'} w={'100%'} theme='green'>
-                  분석하기
-                </Button>
+                {toDoListAi ? (
+                  <AIRecommendCard text={toDoListAi} />
+                ) : (
+                  <Button
+                    alignSelf='center'
+                    size={'$7'}
+                    w={'100%'}
+                    theme='green'
+                  >
+                    분석하기
+                  </Button>
+                )}
               </Stack>
             </Stack>
           </ScrollView>
