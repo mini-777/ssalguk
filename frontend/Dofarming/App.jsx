@@ -76,7 +76,7 @@ export default function App() {
               options={{
                 headerShown: false,
               }}
-            />{' '}
+            />
             <Stack.Screen
               name='Result'
               component={Result}
