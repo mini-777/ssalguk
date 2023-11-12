@@ -93,25 +93,25 @@ export function Question({ navigation }) {
                 {button}
               </Button>)
             }
-            else {
-            <Stack>
-              <TextArea></TextArea>
-              <Button
-                  key={index}
-                  theme='green'
-                  height={60}
-                  width={300}
-                  alignSelf='center'
-                  marginBottom={20}
-                  onPress={() => {
-                    if (pageIndex < 10) {
-                      setPageIndex(pageIndex + 1);
-                    }
-                  }}
-                >
-                {button}
-              </Button>
-            </Stack>
+            else if (index >= 8) {
+              <Stack>
+                <TextArea>{label}</TextArea>
+                <Button
+                    key={index}
+                    theme='green'
+                    height={60}
+                    width={300}
+                    alignSelf='center'
+                    marginBottom={20}
+                    onPress={() => {
+                      if (pageIndex < 10) {
+                        setPageIndex(pageIndex + 1);
+                      }
+                    }}
+                  >
+                  {button}
+                </Button>
+              </Stack>
             }})}
           
         </Stack>
@@ -214,18 +214,14 @@ export const pagesData = [
   {
     question: '요즘 내가 가장 즐겨 사용하는 앱이\n무엇인가요 ?',
     imageUri: require('../assets/img/question9_img.png'),
+    label : '예) 넷플릭스, 인스타그램, 릴스',
     buttons: ['입력 완료!'],
     nextScreen: 'Q10',
   },
   {
     question: '여가 시간에 주로 뭘 하면서\n시간을 보내나요 ?',
     imageUri: require('../assets/img/question10_img.png'),
-    buttons: ['입력 완료!'],
-    nextScreen: 'TestResult',
-  },
-  {
-    question: '여가 시간에 주로 뭘 하면서\n시간을 보내나요 ?',
-    imageUri: require('../assets/img/question10_img.png'),
+    label : '예) 넷플릭스로 드라마 정주행하기',
     buttons: ['입력 완료!'],
     nextScreen: 'TestResult',
   },
