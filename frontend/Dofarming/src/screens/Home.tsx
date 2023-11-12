@@ -50,12 +50,12 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .post('http://localhost:3000/api/ai/todolist', {
-        date: selectedDate,
+      .post('https://dofarming-admin-1471.vercel.app/api/ai/todolist', {
+        user_id: 1,
       })
       .then((res) => {
         console.log(res.data.answer.message.content);
-        setToDoListAi(res.data.answer.message.content.text);
+        setToDoListAi(res.data.answer.message.content);
       });
   }, []);
   // renders
