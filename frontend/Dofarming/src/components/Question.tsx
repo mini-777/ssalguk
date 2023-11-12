@@ -56,7 +56,7 @@ export function Question({ navigation }) {
   const [pageIndex, setPageIndex] = useState<number>(0);
   React.useEffect(() => {
     if (pageIndex === 10) {
-      navigation.navigate('Home');
+      navigation.navigate('Result');
     }
   }, [pageIndex]);
   function QuestionPage({ question, imageUri, buttons }) {
