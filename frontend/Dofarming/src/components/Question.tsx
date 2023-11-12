@@ -52,13 +52,52 @@ export function ProgressDemo({ progress }) {
   );
 }
 
+const Component = ({label}) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleButtonPress = () => {
+    if (inputValue.trim() !== '') {
+      console.log('버튼 클릭! 입력된 값:', inputValue);
+    } else {
+      console.log('입력된 값이 없습니다.');
+    }
+  };
+
+  return (
+    <View>
+      <TextArea 
+      width={250} 
+      alignSelf='center' 
+      size="$4" 
+      placeholder={label}
+      onChangeText={(text) => setInputValue(text)}
+      />
+    </View>
+  );
+};
+
 export function Question({ navigation }) {
   const [pageIndex, setPageIndex] = useState<number>(0);
+  const [inputValue, setInputValue] = useState('');
+
   React.useEffect(() => {
     if (pageIndex === 10) {
       navigation.navigate('Result');
     }
   }, [pageIndex]);
+
+
+  const handleButtonPress = () => {
+    if (inputValue.trim() !== '') {
+      console.log('입력된 값:', inputValue);
+      return 1;
+    } else {
+      console.log('입력된 값이 없습니다.');
+      alert('답변을 입력해주세요~');
+      return 0;
+    }
+  };
+
   function QuestionPage({ question, imageUri, buttons, label }) {
     return (
       <Stack flex={5}>
@@ -88,8 +127,7 @@ export function Question({ navigation }) {
                   onPress={() => {
                     if (pageIndex < 10) {
                       setPageIndex(pageIndex + 1);
-                    }
-                  }}
+                    }}}
                 >
                 {button}
                 </Button>)
@@ -98,7 +136,7 @@ export function Question({ navigation }) {
             else if (pageIndex >= 8) {
               return (
                 <Stack>
-                  <TextArea width={250} alignSelf='center' size="$4">{label}</TextArea>
+                  <Component label = {label} />
                   <Button
                       key={index}
                       theme='green'
@@ -109,11 +147,11 @@ export function Question({ navigation }) {
                       marginBottom={20}
                       fontSize={20}
                       onPress={() => {
-                        if (pageIndex < 10) {
-                          if ({label}.) {
-                              setPageIndex(pageIndex + 1);
-
-                          }
+                        if (handleButtonPress() === 0) {
+                          setPageIndex(pageIndex);
+                        }
+                        else if (handleButtonPress() !== 0 || pageIndex < 10) {
+                          setPageIndex(pageIndex + 1);
                         }
                       }}
                   >
@@ -121,7 +159,8 @@ export function Question({ navigation }) {
                   </Button>
                 </Stack>
               )
-            }})}
+            }
+          })}
         </Stack>
       </Stack>
     );
