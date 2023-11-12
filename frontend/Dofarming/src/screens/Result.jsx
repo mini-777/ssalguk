@@ -1,14 +1,16 @@
 import React, { useCallback, useMemo, useRef } from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
-import { H2, H4, Image, Stack } from 'tamagui';
+import { SafeAreaView } from 'react-native';
+import { H2, H4, Image, Stack, Text, Heading } from 'tamagui';
 
 export function Result() {
   return (
     <SafeAreaView flex={1}>
       <Stack>
-        <H2 textAlign='center' marginTop={50} marginBottom={50}>
-          도파민 중독 '주의' 수준입니다!
-        </H2>
+        <Heading textAlign='center'>
+          <Text>도파민 중독 '</Text>
+          <Text color='red'>주의</Text>
+          <Text>' 수준입니다.</Text>
+        </Heading>
         <Image
           source={{ uri: require('../assets/img/result.png') }}
           width={270}
