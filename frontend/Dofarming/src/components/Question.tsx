@@ -14,6 +14,8 @@ import {
   CheckboxProps,
   Label,
   SizeTokens,
+  Input,
+  TextArea,
 } from 'tamagui';
 import {
   ListItem,
@@ -31,6 +33,7 @@ export function Page1({ navigation }) {
     <View style={styles.container}>
       <SafeAreaView>
         <Stack width = {380} height = {180}>
+          
           <H3 marginTop={80} textAlign='center'>
             술, 담배, 게임, SNS 중에
             {'\n'} 한 가지 이상이 습관이다 !?
@@ -39,8 +42,8 @@ export function Page1({ navigation }) {
         <Stack alignSelf='center' width = {380} height = {230}>
           <Image
             source={{ uri: require('../assets/img/question1_img.png') }}
-            width={170}
-            height={210}
+            width={270}
+            height={160}
             alignSelf='center'
           />
         </Stack>
@@ -325,7 +328,7 @@ export function Page5({ navigation }) {
           </Button>
           <Button
             theme='green'
-            height={80}
+            height={70}
             width={300}
             alignSelf='center'
             marginBottom={20}
@@ -333,7 +336,10 @@ export function Page5({ navigation }) {
               navigation.navigate('Q6');
             }}
           >
-            더 글로리, 오징어 게임 다 완전 내 스타일! 찾아서 봐야지 !!
+            <YStack alignItems='center'>
+              <Text>더 글로리, 오징어 게임 다 완전 내 스타일!</Text>
+              <Text>찾아서 봐야지 !!</Text>
+            </YStack>
           </Button>
         </Stack>
       </SafeAreaView>
@@ -449,7 +455,7 @@ export function Page7({ navigation }) {
           </Button>
           <Button
             theme='green'
-            height={60}
+            height={70}
             width={300}
             alignSelf='center'
             marginBottom={20}
@@ -457,8 +463,10 @@ export function Page7({ navigation }) {
               navigation.navigate('Q8');
             }}
           >
-            누가 내 얘기를,, ?{'\n'}자습 시간이나 업무 시간 중에 1시간 이상
-            봐요..ㅜ
+            <YStack alignItems='center'>
+              <Text>누가 내 얘기를,, ?</Text>
+              <Text>자습 시간이나 업무 시간 중에 1시간 이상 봐요..ㅜ</Text>
+            </YStack>
           </Button>
         </Stack>
       </SafeAreaView>
@@ -478,13 +486,15 @@ export function Page8({ navigation }) {
         <Stack alignSelf='center' width = {380} height = {230}> 
           <Image
             source={{ uri: require('../assets/img/question8_img.png') }}
-            width={240}
-            height={165}
+            width={200}
+            height={190}
             alignSelf='center'
           />
         </Stack>
         <Stack marginTop={50}>
-          <Text>TextInput 넣을거임</Text>
+          <Stack>
+            <TextArea alignSelf = 'center' size='$4'width = {350} marginBottom = {25}  placeholder="예) 계획을 세우기 어렵다. 스마트폰을 오래 사용한다." />
+          </Stack>
           <Button
             theme='green'
             height={60}
@@ -507,21 +517,24 @@ export function Page9({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <Stack width = {380} height = {180}>
+        <Stack width = {380} height = {180} backgroundColor='red'>
+          
           <H3 marginTop={80} textAlign='center'>
             요즘 내가 가장 즐겨 사용하는 앱이{'\n'}무엇인가요 ?
           </H3>
         </Stack>
         <Stack alignSelf='center' width = {380} height = {230}> 
           <Image
-            source={{ uri: require('../assets/img/main_img.png') }}
-            width={240}
-            height={165}
+            source={{ uri: require('../assets/img/question9_img.png') }}
+            width={220}
+            height={180}
             alignSelf='center'
           />
         </Stack>
         <Stack marginTop={50}>
-          <Text>TextInput 넣을거임</Text>
+          <Stack>
+            <TextArea alignSelf = 'center' size='$4'width = {350} marginBottom = {25}  placeholder="예) 넷플릭스, 인스타그램" />
+          </Stack>
           <Button
             theme='green'
             height={60}
@@ -545,7 +558,7 @@ export function Page10({ navigation }) {
     <View style={styles.container}>
       <SafeAreaView>
         <Stack width = {380} height = {180}>
-          <H3 marginTop={80} textAlign='center' marginBottom={55}>
+          <H3 marginTop={80} textAlign='center'>
             {' '}
             여가 시간에 주로 뭘 하면서{'\n'}시간을 보내나요 ?
           </H3>
@@ -559,7 +572,9 @@ export function Page10({ navigation }) {
           />
         </Stack>
         <Stack marginTop={50}>
-          <Text>TextInput 넣을거임</Text>
+          <Stack>
+            <TextArea alignSelf = 'center' size='$4'width = {350} marginBottom = {25}  placeholder="예) 넷플릭스로 드라마 정주행 하기, 무서운 영화보기" />
+          </Stack>
           <Button
             theme='green'
             height={60}
