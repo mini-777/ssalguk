@@ -12,18 +12,8 @@ import { ChevronLeftIcon } from 'lucide-react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/screens/Home';
-import {
-  Page1,
-  Page10,
-  Page2,
-  Page3,
-  Page4,
-  Page5,
-  Page6,
-  Page7,
-  Page8,
-  Page9,
-} from './src/components/Question';
+import { QuestionPage, pagesData } from './src/components/Question';
+
 import Start from './src/screens/Start';
 const Stack = createNativeStackNavigator();
 
@@ -48,6 +38,21 @@ const MainTheme = {
     background: 'white',
   },
 };
+
+function QuestionScreen({ route, navigation }) {
+  const { question, imageUri, buttons, nextScreen, index } = route.params;
+
+  return (
+    <QuestionPage
+      question={question}
+      imageUri={imageUri}
+      buttons={buttons}
+      navigation={navigation}
+      nextScreen={nextScreen}
+      index={index}
+    />
+  );
+}
 
 export default function App() {
   const [loaded] = useFonts({
@@ -79,76 +84,25 @@ export default function App() {
                 headerShown: false,
               }}
             />
-            <Stack.Screen
-              name='Q1'
-              component={Page1}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name='Q2'
-              component={Page2}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name='Q3'
-              component={Page3}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name='Q4'
-              component={Page4}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name='Q5'
-              component={Page5}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name='Q6'
-              component={Page6}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name='Q7'
-              component={Page7}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name='Q8'
-              component={Page8}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name='Q9'
-              component={Page9}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name='Q10'
-              component={Page10}
-              options={{
-                headerShown: false,
-              }}
-            />
+
+            {pagesData.map((page, index) => (
+              <Stack.Screen
+                key={index}
+                name={`Q${index + 1}`}
+                component={QuestionScreen}
+                initialParams={{
+                  question: page.question,
+                  imageUri: page.imageUri,
+                  buttons: page.buttons,
+                  nextScreen: page.nextScreen,
+                  index: index,
+                }} // 각 페이지에 대한 데이터를 전달
+                options={{
+                  headerShown: false,
+                }}
+              />
+            ))}
+
             <Stack.Screen
               name='Home'
               component={Home}
