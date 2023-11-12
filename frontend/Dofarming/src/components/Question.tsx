@@ -59,7 +59,7 @@ export function Question({ navigation }) {
       navigation.navigate('Result');
     }
   }, [pageIndex]);
-  function QuestionPage({ question, imageUri, buttons }) {
+  function QuestionPage({ question, imageUri, buttons, label }) {
     return (
       <Stack flex={5}>
         <Stack alignItems='center' justifyContent='center' flex={0.8}>
@@ -76,44 +76,52 @@ export function Question({ navigation }) {
         </Stack>
         <Stack flex={2} justifyContent='center' marginBottom={-20}>
           {buttons.map((button, index) => {
-            if (index < 8) {
-              return (  <Button
-                key={index}
-                theme='green'
-                height={60}
-                width={300}
-                alignSelf='center'
-                marginBottom={20}
-                onPress={() => {
-                  if (pageIndex < 10) {
-                    setPageIndex(pageIndex + 1);
-                  }
-                }}
-              >
-                {button}
-              </Button>)
-            }
-            else if (index >= 8) {
-              <Stack>
-                <TextArea>{label}</TextArea>
+            if (pageIndex < 8) {
+              return (  
                 <Button
-                    key={index}
-                    theme='green'
-                    height={60}
-                    width={300}
-                    alignSelf='center'
-                    marginBottom={20}
-                    onPress={() => {
-                      if (pageIndex < 10) {
-                        setPageIndex(pageIndex + 1);
-                      }
-                    }}
+                  key={index}
+                  theme='green'
+                  height={60}
+                  width={300}
+                  alignSelf='center'
+                  marginBottom={20}
+                  onPress={() => {
+                    if (pageIndex < 10) {
+                      setPageIndex(pageIndex + 1);
+                    }
+                  }}
+                >
+                {button}
+                </Button>)
+            } 
+          
+            else if (pageIndex >= 8) {
+              return (
+                <Stack>
+                  <TextArea width={250} alignSelf='center' size="$4">{label}</TextArea>
+                  <Button
+                      key={index}
+                      theme='green'
+                      height={60}
+                      width={200}
+                      alignSelf='center'
+                      marginTop = {30}
+                      marginBottom={20}
+                      fontSize={20}
+                      onPress={() => {
+                        if (pageIndex < 10) {
+                          if ({label}.) {
+                              setPageIndex(pageIndex + 1);
+
+                          }
+                        }
+                      }}
                   >
                   {button}
-                </Button>
-              </Stack>
+                  </Button>
+                </Stack>
+              )
             }})}
-          
         </Stack>
       </Stack>
     );
@@ -223,6 +231,13 @@ export const pagesData = [
     imageUri: require('../assets/img/question10_img.png'),
     label : '예) 넷플릭스로 드라마 정주행하기',
     buttons: ['입력 완료!'],
-    nextScreen: 'TestResult',
+    nextScreen: 'Result',
+  },
+  {
+    question: '여가 시간에 주로 뭘 하면서\n시간을 보내나요 ?',
+    imageUri: require('../assets/img/question10_img.png'),
+    label : '예) 넷플릭스로 드라마 정주행하기',
+    buttons: ['입력 완료!'],
+    nextScreen: 'Result',
   },
 ];
