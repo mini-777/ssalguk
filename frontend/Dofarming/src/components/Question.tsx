@@ -1,3 +1,4 @@
+import { Home } from 'lucide-react-native';
 import React, {
   useCallback,
   useMemo,
@@ -26,9 +27,9 @@ export function ProgressDemo({ progress }) {
     <>
       <YStack marginTop={40} height={20} alignItems='center' space>
         <Paragraph height={30} opacity={0.5}>
-          {`${progress}/10`}
+          {`${progress + 1}/10`}
         </Paragraph>
-        <Progress value={progress * 10}>
+        <Progress value={(progress + 1) * 10}>
           <Progress.Indicator animation='slow' />
         </Progress>
       </YStack>
@@ -51,18 +52,16 @@ export function ProgressDemo({ progress }) {
   );
 }
 
-export function QuestionPage({
-  question,
-  imageUri,
-  buttons,
-  navigation,
-  nextScreen,
-  index,
-}) {
-  console.log('index', index);
-  return (
-    <View style={styles.container}>
-      <SafeAreaView>
+export function Question({ navigation }) {
+  const [pageIndex, setPageIndex] = useState<number>(0);
+  React.useEffect(() => {
+    if (pageIndex === 9) {
+      navigation.navigate('Home');
+    }
+  }, [pageIndex, navigation]);
+  function QuestionPage({ question, imageUri, buttons }) {
+    return (
+      <View style={styles.container}>
         <Stack width={380} height={180}>
           <H3 marginTop={80} textAlign='center'>
             {question}
@@ -81,15 +80,24 @@ export function QuestionPage({
               alignSelf='center'
               marginBottom={20}
               onPress={() => {
-                navigation.navigate(nextScreen);
+                setPageIndex(pageIndex + 1);
               }}
             >
               {button}
             </Button>
           ))}
         </Stack>
-      </SafeAreaView>
-    </View>
+      </View>
+    );
+  }
+
+  console.log(pageIndex);
+  return (
+    <SafeAreaView>
+      <ProgressDemo progress={pageIndex} />
+
+      <QuestionPage {...pagesData[pageIndex]} />
+    </SafeAreaView>
   );
 }
 

@@ -27,7 +27,7 @@ export default function Start({ navigation }) {
             width={150}
             marginTop={30}
             onPress={() => {
-              navigation.navigate('Q1');
+              navigation.navigate('Questions');
             }}
           >
             시작하기
