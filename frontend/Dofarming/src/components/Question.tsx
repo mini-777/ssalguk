@@ -58,17 +58,21 @@ export function Question({ navigation }) {
     if (pageIndex === 10) {
       navigation.navigate('Home');
     }
-  }, [pageIndex, navigation]);
+  }, [pageIndex]);
   function QuestionPage({ question, imageUri, buttons }) {
     return (
-      <Stack flex={5} >
+      <Stack flex={5}>
         <Stack alignItems='center' justifyContent='center' flex={0.8}>
-          <H3 textAlign='center'>
-            {question}
-          </H3>
+          <H3 textAlign='center'>{question}</H3>
         </Stack>
         <Stack alignSelf='center' flex={2}>
-          <Image source={{ uri: imageUri}} height={230} width={380} resizeMode = 'contain' aspectRatio={1} />
+          <Image
+            source={{ uri: imageUri }}
+            height={230}
+            width={380}
+            resizeMode='contain'
+            aspectRatio={1}
+          />
         </Stack>
         <Stack flex={2} justifyContent='center' marginBottom={-20}>
           {buttons.map((button, index) => (
@@ -81,7 +85,7 @@ export function Question({ navigation }) {
               marginBottom={20}
               onPress={() => {
                 if (pageIndex < 10) {
-                  setPageIndex(pageIndex+1);
+                  setPageIndex(pageIndex + 1);
                 }
                 // else testResult로 이동
               }}
@@ -96,7 +100,7 @@ export function Question({ navigation }) {
 
   console.log(pageIndex);
   return (
-    <SafeAreaView flex={1}>
+    <SafeAreaView style={{ flex: 1 }}>
       <ProgressDemo progress={pageIndex} />
       <QuestionPage {...pagesData[pageIndex]} />
     </SafeAreaView>
@@ -195,15 +199,10 @@ export const pagesData = [
     buttons: ['입력 완료!'],
     nextScreen: 'TestResult',
   },
+  {
+    question: '여가 시간에 주로 뭘 하면서\n시간을 보내나요 ?',
+    imageUri: require('../assets/img/question10_img.png'),
+    buttons: ['입력 완료!'],
+    nextScreen: 'TestResult',
+  },
 ];
-
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-  },
-  content: {
-    fontSize: 20,
-    alignSelf: 'center',
-    margin: '1%',
-  },
-});
