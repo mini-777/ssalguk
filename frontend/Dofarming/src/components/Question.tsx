@@ -1,39 +1,86 @@
-import React, { useCallback, useMemo, useRef } from 'react';
+import React, { useCallback, useMemo, useRef, useEffect, useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import {
   Button,
-  Card,
-  CardProps,
-  H2,
   H3,
-  H4,
   Image,
   Paragraph,
+  Progress,
+  Stack,
+  YStack,
   XStack,
-  Checkbox,
-  CheckboxProps,
-  Label,
   SizeTokens,
   Input,
   TextArea,
+  Slider,
 } from 'tamagui';
-import {
-  ListItem,
-  Heading,
-  ScrollView,
-  Stack,
-  YStack,
-  YGroup,
-  Separator,
-  ListItemText,
-} from 'tamagui';
+
+
+export function ProgressDemo() {
+  const [size, setSize] = useState(4)
+  const [progress, setProgress] = useState(20)
+
+  const sizeProp = `$${size}` as SizeTokens
+  useEffect(() => {
+    const timer = setTimeout(() => setProgress(10), 10)
+    return () => {
+      clearTimeout(timer)
+    }
+
+  }, [])
+  return (
+
+    <>
+      <YStack marginTop = {40} height={20} alignItems="center" space>
+        <Paragraph height={30} opacity={0.5}>
+          1/10
+        </Paragraph>
+        <Progress size={sizeProp} value={progress}>
+          <Progress.Indicator animation="bouncy" />
+        </Progress>
+      </YStack>
+      <XStack
+        alignItems="center"
+        space
+        position="absolute"
+        bottom="$3"
+        left="$4"
+        $xxs={{ display: 'none' }}
+      >
+        <Slider
+          size="$2"
+          width={130}
+          defaultValue={[4]}
+          min={2}
+          max={6}
+          step={1}
+          onValueChange={([val]) => {
+            setSize(val)
+          }}
+        >
+
+          <Slider.Track borderWidth={1} borderColor="$color5">
+            <Slider.TrackActive />
+          </Slider.Track>
+          <Slider.Thumb circular index={0} />
+        </Slider>
+        <Button size="$2" onPress={() => setProgress((prev) => (prev + 20) % 100)}>
+          Load
+        </Button>
+      </XStack>
+    </>
+
+  )
+
+}
+
 
 export function Page1({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
         <Stack width = {380} height = {180}>
-          
+          <ProgressDemo/>
           <H3 marginTop={80} textAlign='center'>
             술, 담배, 게임, SNS 중에
             {'\n'} 한 가지 이상이 습관이다 !?
@@ -45,6 +92,7 @@ export function Page1({ navigation }) {
             width={270}
             height={160}
             alignSelf='center'
+            marginTop = {30}
           />
         </Stack>
         <Stack marginTop={50}>
@@ -94,14 +142,15 @@ export function Page2({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <Stack width = {380} height = {180}>
+        <ProgressDemo />
+        <Stack width = {380} height = {180} >
           <H3 marginTop={80} textAlign='center'>
             집중력 무슨 일..?
             {'\n'}나도 혹시 성인 ADHD가 아닌지 
             {'\n'}고민했던 적이 있다 ?!
           </H3>
         </Stack>
-        <Stack alignSelf='center' width = {380} height = {230}>
+        <Stack alignSelf='center' width = {380} height = {230} backgroundColor='red'>
           <Image
             source={{ uri: require('../assets/img/question2_img.png') }}
             width={160}
@@ -157,6 +206,7 @@ export function Page3({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
+        <ProgressDemo />
         <Stack width = {380} height = {180}>
           <H3 marginTop={80} textAlign='center'>
             우울하거나 스트레스 받을 때{'\n'} 나의 행동은?
@@ -218,6 +268,7 @@ export function Page4({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
+        <ProgressDemo />
         <Stack width = {380} height = {180}>
           <H3 marginTop={80} textAlign='center'>
             릴스, 숏츠, 틱톡 같은{'\n'}숏폼 콘텐츠를 많이 본다 ?!
@@ -288,6 +339,7 @@ export function Page5({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
+        <ProgressDemo />
         <Stack width = {380} height = {180}>
           <H3 marginTop={80} textAlign='center'>
             폭력이나 욕설, 약물이 등장하는{'\n'}콘텐츠 즐기는 편이다 !?
@@ -351,6 +403,7 @@ export function Page6({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
+        <ProgressDemo />
         <Stack width = {380} height = {180}>
           <H3 marginTop={80} textAlign='center'>
             한국인은 못 참지… ㅋ{'\n'}동영상 원배속으로 잘못보고,{'\n'}N 배속은
@@ -413,6 +466,8 @@ export function Page7({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
+        <ProgressDemo />
+
         <Stack width = {380} height = {180}>
           <H3 marginTop={80} textAlign='center'>
             스마트폰 때문에 직장이나 학교에서
@@ -478,6 +533,8 @@ export function Page8({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
+      <ProgressDemo />
+
         <Stack width = {380} height = {180}>
           <H3 marginTop={80} textAlign='center'>
             본인의 가장 큰 문제점이{'\n'}뭐라고 생각하나요 ?
@@ -518,6 +575,7 @@ export function Page9({ navigation }) {
     <View style={styles.container}>
       <SafeAreaView>
         <Stack width = {380} height = {180} backgroundColor='red'>
+        <ProgressDemo />
           
           <H3 marginTop={80} textAlign='center'>
             요즘 내가 가장 즐겨 사용하는 앱이{'\n'}무엇인가요 ?
@@ -557,6 +615,8 @@ export function Page10({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
+      <ProgressDemo />
+
         <Stack width = {380} height = {180}>
           <H3 marginTop={80} textAlign='center'>
             {' '}
@@ -565,7 +625,7 @@ export function Page10({ navigation }) {
         </Stack>
         <Stack alignSelf='center' width = {380} height = {230}> 
           <Image
-            source={{ uri: require('../assets/img/main_img.png') }}
+            source={{ uri: require('../assets/img/question10_img.png') }}
             width={240}
             height={165}
             alignSelf='center'
@@ -573,7 +633,7 @@ export function Page10({ navigation }) {
         </Stack>
         <Stack marginTop={50}>
           <Stack>
-            <TextArea alignSelf = 'center' size='$4'width = {350} marginBottom = {25}  placeholder="예) 넷플릭스로 드라마 정주행 하기, 무서운 영화보기" />
+            <TextArea alignSelf = 'center' size='$4' width = {350} marginBottom = {25}  placeholder="예) 넷플릭스로 드라마 정주행 하기, 무서운 영화보기" />
           </Stack>
           <Button
             theme='green'
