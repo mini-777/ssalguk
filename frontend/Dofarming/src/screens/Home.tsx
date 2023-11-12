@@ -21,6 +21,7 @@ import {
   ScreenTimeCardTypeB,
   ScreenTimeCardTypeC,
   ScreenTimeCardTypeD,
+  ScreenTimeCardTypeE,
 } from '../components/ScreenTimeCard';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Calendar from '../components/Calendar';
@@ -58,10 +59,16 @@ const Home = () => {
           </Stack>
         </Stack>
         <Stack flex={3}>
+          <Heading w={'90%'} alignSelf='center' mt={10}>
+            To-Do List
+          </Heading>
+
           <YStack space alignItems='center'>
             <ToDoList />
             <AIRecommendCard />
-            <Button onPress={handlePresentModalPress}>Show Modal</Button>
+            <Button theme='green' w={'90%'} onPress={handlePresentModalPress}>
+              스크린 타임 분석하기
+            </Button>
           </YStack>
         </Stack>
 
@@ -111,7 +118,7 @@ const Home = () => {
                       shadowOpacity={0.15} // 그림자의 투명도 (0에서 1 사이)
                       shadowRadius={8} // 그림자의 퍼짐 반경
                     />
-                    <ScreenTimeCardTypeD
+                    <ScreenTimeCardTypeE
                       animation='bouncy'
                       size='$4'
                       width={160}
@@ -137,11 +144,11 @@ const Home = () => {
                       shadowOpacity={0.15} // 그림자의 투명도 (0에서 1 사이)
                       shadowRadius={8} // 그림자의 퍼짐 반경
                     />
-                    <ScreenTimeCardTypeA
+                    <ScreenTimeCardTypeB
                       animation='bouncy'
                       size='$4'
                       width={160}
-                      height={160}
+                      height={180}
                       scale={0.9}
                       hoverStyle={{ scale: 0.925 }}
                       pressStyle={{ scale: 0.955 }}
@@ -153,7 +160,7 @@ const Home = () => {
                 </XStack>
               </YStack>
               <Stack marginTop={30} w={'90%'} marginBottom={50}>
-                <Button alignSelf='center' icon={Layers} size={'$7'} w={'100%'}>
+                <Button alignSelf='center' size={'$7'} w={'100%'} theme='green'>
                   분석하기
                 </Button>
               </Stack>

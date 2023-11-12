@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import moment from 'moment';
 import 'moment/locale/ko';
+import { useState } from 'react';
 
 const Date = ({ date, onSelectDate, selected }) => {
   /**
@@ -15,6 +16,10 @@ const Date = ({ date, onSelectDate, selected }) => {
 
   // get the full date e.g 2021-01-01 - we'll use this to compare the date to the selected date
   const fullDate = moment(date).format('YYYY-MM-DD');
+  const today = '2023-11-12';
+  useState(() => {
+    onSelectDate(fullDate);
+  }, []);
   return (
     <TouchableOpacity
       onPress={() => onSelectDate(fullDate)}

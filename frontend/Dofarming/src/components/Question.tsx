@@ -24,8 +24,8 @@ import {
 
 export function ProgressDemo({ progress }) {
   return (
-    <Stack flex={1}>
-      <YStack marginTop={40} height={20} alignItems='center' space>
+    <Stack flex={0.7} w={'90%'} alignSelf='center'>
+      <YStack height={20} alignItems='center' space>
         <Heading height={25} opacity={1.0} fontSize={20}>
           {`${progress + 1}/10`}
         </Heading>
@@ -40,41 +40,10 @@ export function ProgressDemo({ progress }) {
         bottom='$3'
         left='$4'
         $xxs={{ display: 'none' }}
-      >
-        {/* <Button
-          size='$2'
-          onPress={() => setProgress((prev) => (prev + 20) % 100)}
-        >
-          Load
-        </Button> */}
-      </XStack>
+      ></XStack>
     </Stack>
   );
 }
-
-const Component = ({label}) => {
-  const [inputValue, setInputValue] = useState('');
-
-  const handleButtonPress = () => {
-    if (inputValue.trim() !== '') {
-      console.log('버튼 클릭! 입력된 값:', inputValue);
-    } else {
-      console.log('입력된 값이 없습니다.');
-    }
-  };
-
-  return (
-    <View>
-      <TextArea 
-      width={250} 
-      alignSelf='center' 
-      size="$4" 
-      placeholder={label}
-      onChangeText={(text) => setInputValue(text)}
-      />
-    </View>
-  );
-};
 
 export function Question({ navigation }) {
   const [pageIndex, setPageIndex] = useState<number>(0);
@@ -86,19 +55,7 @@ export function Question({ navigation }) {
     }
   }, [pageIndex]);
 
-
-  const handleButtonPress = () => {
-    if (inputValue.trim() !== '') {
-      console.log('입력된 값:', inputValue);
-      return 1;
-    } else {
-      console.log('입력된 값이 없습니다.');
-      alert('답변을 입력해주세요~');
-      return 0;
-    }
-  };
-
-  function QuestionPage({ question, imageUri, buttons, label }) {
+  function QuestionPage({ question, imageUri, buttons }) {
     return (
       <Stack flex={5}>
         <Stack alignItems='center' justifyContent='center' flex={0.8}>
@@ -116,7 +73,7 @@ export function Question({ navigation }) {
         <Stack flex={2} justifyContent='center' marginBottom={-20}>
           {buttons.map((button, index) => {
             if (pageIndex < 8) {
-              return (  
+              return (
                 <Button
                   key={index}
                   theme='green'
@@ -127,38 +84,36 @@ export function Question({ navigation }) {
                   onPress={() => {
                     if (pageIndex < 10) {
                       setPageIndex(pageIndex + 1);
-                    }}}
+                    }
+                  }}
                 >
-                {button}
-                </Button>)
-            } 
-          
-            else if (pageIndex >= 8) {
-              return (
-                <Stack>
-                  <Component label = {label} />
-                  <Button
-                      key={index}
-                      theme='green'
-                      height={60}
-                      width={200}
-                      alignSelf='center'
-                      marginTop = {30}
-                      marginBottom={20}
-                      fontSize={20}
-                      onPress={() => {
-                        if (handleButtonPress() === 0) {
-                          setPageIndex(pageIndex);
-                        }
-                        else if (handleButtonPress() !== 0 || pageIndex < 10) {
-                          setPageIndex(pageIndex + 1);
-                        }
-                      }}
-                  >
                   {button}
+                </Button>
+              );
+            } else if (pageIndex >= 8) {
+              return (
+                <Stack key={index} w={'90%'} alignSelf='center'>
+                  <TextArea size='$4' borderWidth={2} />
+                  <Button
+                    theme='green'
+                    height={60}
+                    width={200}
+                    alignSelf='center'
+                    marginTop={30}
+                    marginBottom={20}
+                    fontSize={20}
+                    onPress={() => {
+                      if (pageIndex < 10) {
+                        setPageIndex(pageIndex + 1);
+                      } else {
+                        navigation.navigate('Result');
+                      }
+                    }}
+                  >
+                    {button}
                   </Button>
                 </Stack>
-              )
+              );
             }
           })}
         </Stack>
@@ -250,32 +205,34 @@ export const pagesData = [
     nextScreen: 'Q8',
   },
   {
-    question: '스마트폰을 하다보면 뭔가를 놓치는 거 같고, \n불안한 마음이 든다 ㅜ',
+    question:
+      '스마트폰을 하다보면 뭔가를 놓치는 거 같고, \n불안한 마음이 든다 ㅜ',
     imageUri: require('../assets/img/question8_img.png'),
     buttons: [
       '사회생활 하려고 연락만 받는 정도 ㅋ',
       '하루 정도 하지 않으면 뭔가 .. 세상에서 고립된 기분 ㅠ',
-      '한 시간 이상 안보면 불안해서, 하루 종일 폰 봄'],
+      '한 시간 이상 안보면 불안해서, 하루 종일 폰 봄',
+    ],
     nextScreen: 'Q9',
   },
   {
     question: '요즘 내가 가장 즐겨 사용하는 앱이\n무엇인가요 ?',
     imageUri: require('../assets/img/question9_img.png'),
-    label : '예) 넷플릭스, 인스타그램, 릴스',
+    label: '예) 넷플릭스, 인스타그램, 릴스',
     buttons: ['입력 완료!'],
     nextScreen: 'Q10',
   },
   {
     question: '여가 시간에 주로 뭘 하면서\n시간을 보내나요 ?',
     imageUri: require('../assets/img/question10_img.png'),
-    label : '예) 넷플릭스로 드라마 정주행하기',
+    label: '예) 넷플릭스로 드라마 정주행하기',
     buttons: ['입력 완료!'],
     nextScreen: 'Result',
   },
   {
     question: '여가 시간에 주로 뭘 하면서\n시간을 보내나요 ?',
     imageUri: require('../assets/img/question10_img.png'),
-    label : '예) 넷플릭스로 드라마 정주행하기',
+    label: '예) 넷플릭스로 드라마 정주행하기',
     buttons: ['입력 완료!'],
     nextScreen: 'Result',
   },

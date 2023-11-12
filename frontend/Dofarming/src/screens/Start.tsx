@@ -23,9 +23,12 @@ export default function Start({ navigation }) {
           </Text>
           <Button
             theme='green'
+            height={60}
+            width={200}
             alignSelf='center'
-            width={150}
             marginTop={30}
+            marginBottom={20}
+            fontSize={20}
             onPress={() => {
               navigation.navigate('Questions');
             }}
