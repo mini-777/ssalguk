@@ -15,7 +15,7 @@ export function Result() {
           height={380}
           alignSelf='center'
         />
-        <H4>
+        <H4 alignSelf='center'>
           Dofarming의 AI 분석 서비스를 통해{'\n'}
           도파밍 디톡스를 시작해보세요!
         </H4>

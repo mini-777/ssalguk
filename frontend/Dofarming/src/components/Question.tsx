@@ -75,24 +75,43 @@ export function Question({ navigation }) {
           />
         </Stack>
         <Stack flex={2} justifyContent='center' marginBottom={-20}>
-          {buttons.map((button, index) => (
-            <Button
-              key={index}
-              theme='green'
-              height={60}
-              width={300}
-              alignSelf='center'
-              marginBottom={20}
-              onPress={() => {
-                if (pageIndex < 10) {
-                  setPageIndex(pageIndex + 1);
-                }
-                // else testResult로 이동
-              }}
-            >
-              {button}
-            </Button>
-          ))}
+          {buttons.map((button, index) => {
+            if (index < 7) {
+              return (  <Button
+                key={index}
+                theme='green'
+                height={60}
+                width={300}
+                alignSelf='center'
+                marginBottom={20}
+                onPress={() => {
+                  if (pageIndex < 10) {
+                    setPageIndex(pageIndex + 1);
+                  }
+                }}
+              >
+                {button}
+              </Button>)
+            }
+            else {<Stack>
+              <Button
+                  key={index}
+                  theme='green'
+                  height={60}
+                  width={300}
+                  alignSelf='center'
+                  marginBottom={20}
+                  onPress={() => {
+                    if (pageIndex < 10) {
+                      setPageIndex(pageIndex + 1);
+                    }
+                  }}
+                >
+                {button}
+              </Button>
+            </Stack>
+            }})}
+          
         </Stack>
       </Stack>
     );
