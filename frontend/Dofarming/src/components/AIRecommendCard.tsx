@@ -2,9 +2,10 @@ import React from 'react';
 import { Card, H3, XStack, YStack, Button, CardProps, Text, H4 } from 'tamagui';
 import { CheckboxWithLabel } from './ToDoList';
 
-export function AIRecommendCard(props: CardProps) {
+export function AIRecommendCard(text: any) {
+  console.log(text);
   return (
-    <Card elevate size='$4' bordered {...props} alignItems='center' w={'90%'}>
+    <Card elevate size='$4' bordered alignItems='center' w={'90%'}>
       <Card.Header>
         <XStack space={40} alignItems='center'>
           <H4>오늘의 추천 활동입니다 </H4>
@@ -14,7 +15,7 @@ export function AIRecommendCard(props: CardProps) {
           </Button>
         </XStack>
         <YStack marginTop='$5'>
-          <Text> AI Text</Text>
+          <Text></Text>
         </YStack>
       </Card.Header>
       <Card.Footer>

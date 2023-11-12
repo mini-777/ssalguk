@@ -121,6 +121,7 @@ export const Ring = ({
   useEffect(() => {
     trim.value = withTiming(1, { duration: 3000 });
   }, [trim]);
+
   return (
     <Group transform={[{ rotate: -Math.PI / 2 }]} origin={center}>
       <Group clip={clip}>

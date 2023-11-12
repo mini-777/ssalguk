@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import {
   BottomSheetModal,
@@ -15,6 +15,7 @@ import {
   Button,
   H2,
   Separator,
+  Spinner,
 } from 'tamagui';
 import {
   ScreenTimeCardTypeA,
@@ -26,14 +27,15 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Calendar from '../components/Calendar';
 import { Layers } from '@tamagui/lucide-icons';
-import { Rings } from '../components/Rings';
 import { ToDoList } from '../components/ToDoList';
 import { AIRecommendCard } from '../components/AIRecommendCard';
+import axios from 'axios';
+import { Rings } from '../components/Rings';
 
 const Home = () => {
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-
+  const [toDoListAi, setToDoListAi] = React.useState(null);
   // variables
   const snapPoints = useMemo(() => ['25%', '75%'], []);
   const [selectedDate, setSelectedDate] = React.useState(null);
@@ -46,14 +48,24 @@ const Home = () => {
     bottomSheetModalRef.current?.present();
   }, []);
 
+  useEffect(() => {
+    axios
+      .post('http://localhost:3000/api/ai/todolist', {
+        date: selectedDate,
+      })
+      .then((res) => {
+        console.log(res.data.answer.message.content);
+        setToDoListAi(res.data.answer.message.content.text);
+      });
+  }, []);
   // renders
   return (
     <BottomSheetModalProvider>
       <SafeAreaView style={styles.container}>
         <Stack flex={2}>
           <Calendar onSelectDate={setSelectedDate} selected={selectedDate} />
-
           <Rings />
+
           <Stack alignItems='center'>
             <Separator w={'85%'} />
           </Stack>
@@ -62,10 +74,14 @@ const Home = () => {
           <Heading w={'90%'} alignSelf='center' mt={10}>
             To-Do List
           </Heading>
+          <ToDoList />
 
           <YStack space alignItems='center'>
-            <ToDoList />
-            <AIRecommendCard />
+            {toDoListAi === '' ? (
+              <AIRecommendCard text={toDoListAi} />
+            ) : (
+              <Spinner size='small' color='$green10' />
+            )}
             <Button theme='green' w={'90%'} onPress={handlePresentModalPress}>
               스크린 타임 분석하기
             </Button>
