@@ -15,6 +15,7 @@ import Home from './src/screens/Home';
 import { Question } from './src/components/Question';
 
 import Start from './src/screens/Start';
+import { Result } from './src/screens/Result';
 const Stack = createNativeStackNavigator();
 
 const HeaderLeft = () => {
@@ -69,15 +70,20 @@ export default function App() {
                 headerShown: false,
               }}
             />
-
             <Stack.Screen
               name={`Questions`}
               component={Question}
               options={{
                 headerShown: false,
               }}
+            />{' '}
+            <Stack.Screen
+              name='Result'
+              component={Result}
+              options={{
+                headerShown: false,
+              }}
             />
-
             <Stack.Screen
               name='Home'
               component={Home}
