@@ -11,7 +11,7 @@ import {
   Button,
   H3,
   Image,
-  Paragraph,
+  Heading,
   Progress,
   Stack,
   YStack,
@@ -24,11 +24,11 @@ import {
 
 export function ProgressDemo({ progress }) {
   return (
-    <>
+    <Stack flex={1}>
       <YStack marginTop={40} height={20} alignItems='center' space>
-        <Paragraph height={30} opacity={0.5}>
+        <Heading height={25} opacity={1.0} fontSize={20}>
           {`${progress + 1}/10`}
-        </Paragraph>
+        </Heading>
         <Progress value={(progress + 1) * 10}>
           <Progress.Indicator animation='slow' />
         </Progress>
@@ -48,29 +48,29 @@ export function ProgressDemo({ progress }) {
           Load
         </Button> */}
       </XStack>
-    </>
+    </Stack>
   );
 }
 
 export function Question({ navigation }) {
   const [pageIndex, setPageIndex] = useState<number>(0);
   React.useEffect(() => {
-    if (pageIndex === 9) {
+    if (pageIndex === 10) {
       navigation.navigate('Home');
     }
   }, [pageIndex, navigation]);
   function QuestionPage({ question, imageUri, buttons }) {
     return (
-      <View style={styles.container}>
-        <Stack width={380} height={180}>
-          <H3 marginTop={80} textAlign='center'>
+      <Stack flex={5} >
+        <Stack alignItems='center' justifyContent='center' flex={0.8}>
+          <H3 textAlign='center'>
             {question}
           </H3>
         </Stack>
-        <Stack alignSelf='center' width={380} height={230}>
-          <Image source={{ uri: imageUri }} alignSelf='center' />
+        <Stack alignSelf='center' flex={2}>
+          <Image source={{ uri: imageUri}} height={230} width={380} resizeMode = 'contain' aspectRatio={1} />
         </Stack>
-        <Stack marginTop={50}>
+        <Stack flex={2} justifyContent='center' marginBottom={-20}>
           {buttons.map((button, index) => (
             <Button
               key={index}
@@ -80,22 +80,24 @@ export function Question({ navigation }) {
               alignSelf='center'
               marginBottom={20}
               onPress={() => {
-                setPageIndex(pageIndex + 1);
+                if (pageIndex < 10) {
+                  setPageIndex(pageIndex+1);
+                }
+                // else testResult로 이동
               }}
             >
               {button}
             </Button>
           ))}
         </Stack>
-      </View>
+      </Stack>
     );
   }
 
   console.log(pageIndex);
   return (
-    <SafeAreaView>
+    <SafeAreaView flex={1}>
       <ProgressDemo progress={pageIndex} />
-
       <QuestionPage {...pagesData[pageIndex]} />
     </SafeAreaView>
   );
@@ -140,7 +142,6 @@ export const pagesData = [
       '숏폼은 내 취향은 아님 ~ ㅋ',
       '한 번씩 심심할 때 보는 듯 ㅎㅎ',
       '재밌어서 좋아해! 자주 보는 거 같아 ㅎㅎ',
-      '없으면 무슨 낙으로 살아???? 매일 봐줘야지 ㅋ',
     ],
     nextScreen: 'Q5',
   },
@@ -150,7 +151,7 @@ export const pagesData = [
     buttons: [
       '자극적인 거 보는 거 힘든 편 ㅜㅜ',
       '좋아하진 않지만 누가 재밌다하면 보는 정도!',
-      '더 글로리, 오징어 게임 다 완전 내 스타일! 찾아서 봐야지 !!',
+      '완전 내 취향!! 찾아서 봐야지 ~',
     ],
     nextScreen: 'Q6',
   },
@@ -192,12 +193,14 @@ export const pagesData = [
     question: '여가 시간에 주로 뭘 하면서\n시간을 보내나요 ?',
     imageUri: require('../assets/img/question10_img.png'),
     buttons: ['입력 완료!'],
-    nextScreen: 'Home',
+    nextScreen: 'TestResult',
   },
 ];
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex:1,
+  },
   content: {
     fontSize: 20,
     alignSelf: 'center',
