@@ -30,17 +30,20 @@ export function Page1({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <H3 marginTop={80} textAlign='center' marginBottom={55}>
-          술, 담배, 게임, SNS 중에
-          {'\n'} 한 가지 이상이 습관이다 !?
-        </H3>
-        <Image
-          source={{ uri: require('../assets/img/main_img.png') }}
-          width={240}
-          height={165}
-          alignSelf='center'
-        />
-        <Text>[이미지]관련 이미지 넣을거임</Text>
+        <Stack width = {380} height = {180}>
+          <H3 marginTop={80} textAlign='center'>
+            술, 담배, 게임, SNS 중에
+            {'\n'} 한 가지 이상이 습관이다 !?
+          </H3>
+        </Stack>
+        <Stack alignSelf='center' width = {380} height = {230}>
+          <Image
+            source={{ uri: require('../assets/img/question1_img.png') }}
+            width={170}
+            height={210}
+            alignSelf='center'
+          />
+        </Stack>
         <Stack marginTop={50}>
           <Button
             theme='green'
@@ -88,17 +91,22 @@ export function Page2({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <H3 marginTop={80} textAlign='center' marginBottom={55}>
-          집중력 무슨 일..?
-          {'\n'}나도 혹시 성인 ADHD가 아닌지 고민했던 적이 있다 ?!
-        </H3>
-        <Image
-          source={{ uri: require('../assets/img/main_img.png') }}
-          width={240}
-          height={165}
-          alignSelf='center'
-        />
-        <Text>[이미지]관련 이미지 넣을거임</Text>
+        <Stack width = {380} height = {180}>
+          <H3 marginTop={80} textAlign='center'>
+            집중력 무슨 일..?
+            {'\n'}나도 혹시 성인 ADHD가 아닌지 
+            {'\n'}고민했던 적이 있다 ?!
+          </H3>
+        </Stack>
+        <Stack alignSelf='center' width = {380} height = {230}>
+          <Image
+            source={{ uri: require('../assets/img/question2_img.png') }}
+            width={160}
+            height={190}
+            alignSelf='center'
+            marginTop={15}
+          />
+        </Stack>
         <Stack marginTop={50}>
           <Button
             theme='green'
@@ -146,16 +154,20 @@ export function Page3({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <H3 marginTop={80} textAlign='center' marginBottom={55}>
-          우울하거나 스트레스 받을 때{'\n'} 나의 행동은?
-        </H3>
-        <Image
-          source={{ uri: require('../assets/img/main_img.png') }}
-          width={240}
-          height={165}
-          alignSelf='center'
-        />
-        <Text>[이미지]관련 이미지 넣을거임</Text>
+        <Stack width = {380} height = {180}>
+          <H3 marginTop={80} textAlign='center'>
+            우울하거나 스트레스 받을 때{'\n'} 나의 행동은?
+          </H3>
+        </Stack>
+        <Stack alignSelf='center' width = {380} height = {230}>
+          <Image
+            source={{ uri: require('../assets/img/question3_img.png') }}
+            width={230}
+            height={170}
+            alignSelf='center'
+            marginTop={15}
+          />
+        </Stack>
         <Stack marginTop={50}>
           <Button
             theme='green'
@@ -203,16 +215,20 @@ export function Page4({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <H3 marginTop={80} textAlign='center' marginBottom={55}>
-          릴스, 숏츠, 틱톡 같은{'\n'}숏폼 콘텐츠를 많이 본다 ?!
-        </H3>
-        <Image
-          source={{ uri: require('../assets/img/main_img.png') }}
-          width={240}
-          height={165}
-          alignSelf='center'
-        />
-        <Text>[이미지]관련 이미지 넣을거임</Text>
+        <Stack width = {380} height = {180}>
+          <H3 marginTop={80} textAlign='center'>
+            릴스, 숏츠, 틱톡 같은{'\n'}숏폼 콘텐츠를 많이 본다 ?!
+          </H3>
+        </Stack>
+        <Stack alignSelf='center' width = {380} height = {180}>
+          <Image
+            source={{ uri: require('../assets/img/question4_img.png') }}
+            width={180}
+            height={180}
+
+            alignSelf='center'
+          />
+        </Stack>
         <Stack marginTop={50}>
           <Button
             theme='green'
@@ -269,16 +285,19 @@ export function Page5({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <H3 marginTop={80} textAlign='center' marginBottom={55}>
-          폭력이나 욕설, 약물이 등장하는{'\n'}콘텐츠 즐기는 편이다 !?
-        </H3>
-        <Image
-          source={{ uri: require('../assets/img/main_img.png') }}
-          width={240}
-          height={165}
-          alignSelf='center'
-        />
-        <Text>[이미지]관련 이미지 넣을거임</Text>
+        <Stack width = {380} height = {180}>
+          <H3 marginTop={80} textAlign='center'>
+            폭력이나 욕설, 약물이 등장하는{'\n'}콘텐츠 즐기는 편이다 !?
+          </H3>
+        </Stack>
+        <Stack alignSelf='center' width = {380} height = {230}>
+          <Image
+            source={{ uri: require('../assets/img/question5_img.png') }}
+            width={190}
+            height={200}
+            alignSelf='center'
+          />
+        </Stack>
         <Stack marginTop={50}>
           <Button
             theme='green'
@@ -326,17 +345,21 @@ export function Page6({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <H3 marginTop={80} textAlign='center' marginBottom={55}>
-          한국인은 못 참지… ㅋ{'\n'}동영상 원배속으로 잘못보고,{'\n'}N 배속은
-          기본 ~ ㅋㅋ
-        </H3>
-        <Image
-          source={{ uri: require('../assets/img/main_img.png') }}
-          width={240}
-          height={165}
-          alignSelf='center'
-        />
-        <Text>[이미지]관련 이미지 넣을거임</Text>
+        <Stack width = {380} height = {180}>
+          <H3 marginTop={80} textAlign='center'>
+            한국인은 못 참지… ㅋ{'\n'}동영상 원배속으로 잘못보고,{'\n'}N 배속은
+            기본 ~ ㅋㅋ
+          </H3>
+        </Stack>
+        <Stack alignSelf='center' width = {380} height = {230}>
+          <Image
+            source={{ uri: require('../assets/img/question6_img.png') }}
+            width={240}
+            height={220}
+            alignSelf='center'
+            marginTop={15}
+          />
+        </Stack>
         <Stack marginTop={50}>
           <Button
             theme='green'
@@ -384,17 +407,21 @@ export function Page7({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <H3 marginTop={80} textAlign='center' marginBottom={55}>
-          스마트폰 때문에 직장이나 학교에서
-          {'\n'}문제가 된 적이 있다?!
-        </H3>
-        <Image
-          source={{ uri: require('../assets/img/main_img.png') }}
-          width={240}
-          height={165}
-          alignSelf='center'
-        />
-        <Text>[이미지]관련 이미지 넣을거임</Text>
+        <Stack width = {380} height = {180}>
+          <H3 marginTop={80} textAlign='center'>
+            스마트폰 때문에 직장이나 학교에서
+            {'\n'}문제가 된 적이 있다?!
+          </H3>
+        </Stack>
+        <Stack alignSelf='center' width = {380} height = {230}>
+          <Image
+            source={{ uri: require('../assets/img/question7_img.png') }}
+            width={240}
+            height={190}
+            alignSelf='center'
+            marginTop = {15}
+          />
+        </Stack>
         <Stack marginTop={50}>
           <Button
             theme='green'
@@ -443,16 +470,19 @@ export function Page8({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <H3 marginTop={80} textAlign='center' marginBottom={55}>
-          본인의 가장 큰 문제점이{'\n'}뭐라고 생각하나요 ?
-        </H3>
-        <Image
-          source={{ uri: require('../assets/img/main_img.png') }}
-          width={240}
-          height={165}
-          alignSelf='center'
-        />
-        <Text>[이미지]관련 이미지 넣을거임</Text>
+        <Stack width = {380} height = {180}>
+          <H3 marginTop={80} textAlign='center'>
+            본인의 가장 큰 문제점이{'\n'}뭐라고 생각하나요 ?
+          </H3>
+        </Stack>
+        <Stack alignSelf='center' width = {380} height = {230}> 
+          <Image
+            source={{ uri: require('../assets/img/question8_img.png') }}
+            width={240}
+            height={165}
+            alignSelf='center'
+          />
+        </Stack>
         <Stack marginTop={50}>
           <Text>TextInput 넣을거임</Text>
           <Button
@@ -477,16 +507,19 @@ export function Page9({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <H3 marginTop={80} textAlign='center' marginBottom={55}>
-          요즘 내가 가장 즐겨 사용하는 앱이{'\n'}무엇인가요 ?
-        </H3>
-        <Image
-          source={{ uri: require('../assets/img/main_img.png') }}
-          width={240}
-          height={165}
-          alignSelf='center'
-        />
-        <Text>[이미지]관련 이미지 넣을거임</Text>
+        <Stack width = {380} height = {180}>
+          <H3 marginTop={80} textAlign='center'>
+            요즘 내가 가장 즐겨 사용하는 앱이{'\n'}무엇인가요 ?
+          </H3>
+        </Stack>
+        <Stack alignSelf='center' width = {380} height = {230}> 
+          <Image
+            source={{ uri: require('../assets/img/main_img.png') }}
+            width={240}
+            height={165}
+            alignSelf='center'
+          />
+        </Stack>
         <Stack marginTop={50}>
           <Text>TextInput 넣을거임</Text>
           <Button
@@ -511,17 +544,20 @@ export function Page10({ navigation }) {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <H3 marginTop={80} textAlign='center' marginBottom={55}>
-          {' '}
-          여가 시간에 주로 뭘 하면서{'\n'}시간을 보내나요 ?
-        </H3>
-        <Image
-          source={{ uri: require('../assets/img/main_img.png') }}
-          width={240}
-          height={165}
-          alignSelf='center'
-        />
-        <Text>[이미지]관련 이미지 넣을거임</Text>
+        <Stack width = {380} height = {180}>
+          <H3 marginTop={80} textAlign='center' marginBottom={55}>
+            {' '}
+            여가 시간에 주로 뭘 하면서{'\n'}시간을 보내나요 ?
+          </H3>
+        </Stack>
+        <Stack alignSelf='center' width = {380} height = {230}> 
+          <Image
+            source={{ uri: require('../assets/img/main_img.png') }}
+            width={240}
+            height={165}
+            alignSelf='center'
+          />
+        </Stack>
         <Stack marginTop={50}>
           <Text>TextInput 넣을거임</Text>
           <Button
