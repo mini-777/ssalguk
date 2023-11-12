@@ -76,7 +76,7 @@ export function Question({ navigation }) {
         </Stack>
         <Stack flex={2} justifyContent='center' marginBottom={-20}>
           {buttons.map((button, index) => {
-            if (index < 7) {
+            if (index < 8) {
               return (  <Button
                 key={index}
                 theme='green'
@@ -93,7 +93,9 @@ export function Question({ navigation }) {
                 {button}
               </Button>)
             }
-            else {<Stack>
+            else {
+            <Stack>
+              <TextArea></TextArea>
               <Button
                   key={index}
                   theme='green'
@@ -196,14 +198,17 @@ export const pagesData = [
     buttons: [
       '집중할 때는 폰 잘 안보는 편 ㅋ',
       '그런 것 같기도 ? 한 번 보면 시간 순삭 ㅋ',
-      '누가 내 얘기를,, ? 자습 시간이나 업무 시간 중에 1시간 이상 봐요..ㅜ',
+      '자습 시간이나 업무 시간 중에 1시간 이상 봐요..ㅜ',
     ],
     nextScreen: 'Q8',
   },
   {
-    question: '본인의 가장 큰 문제점이\n뭐라고 생각하나요 ?',
+    question: '스마트폰을 하다보면 뭔가를 놓치는 거 같고, \n불안한 마음이 든다 ㅜ',
     imageUri: require('../assets/img/question8_img.png'),
-    buttons: ['입력 완료!'],
+    buttons: [
+      '사회생활 하려고 연락만 받는 정도 ㅋ',
+      '하루 정도 하지 않으면 뭔가 .. 세상에서 고립된 기분 ㅠ',
+      '한 시간 이상 안보면 불안해서, 하루 종일 폰 봄'],
     nextScreen: 'Q9',
   },
   {
