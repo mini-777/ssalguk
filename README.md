@@ -72,8 +72,12 @@
 ### Youtube 영상
 - https://youtu.be/biONjIrfJxQ?si=omNoNTtosELKHTZe
 
+![플로우 차트](./src/flowchart.png)
+
 ### app interface
 
+![1](./src/pic2.png)
+![2](./src/pic3.png)
 
 
 
