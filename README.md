@@ -45,7 +45,7 @@
 
 ## 프로젝트에 사용된 기술
 
-<img src="./src/system_diagram.png" width="400" height="200"/>
+<img src="./src/system_diagram.png"/>
 
 ### app stack
 - Framework - react native
