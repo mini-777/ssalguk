@@ -67,11 +67,13 @@
 - Formatting - Prettier
 
 
-## 시연 영상
+## 시연
 
+### Youtube 영상
 - https://youtu.be/biONjIrfJxQ?si=omNoNTtosELKHTZe
-- 상세 페이지
-    - 
+
+### app interface
+
 
 
 
