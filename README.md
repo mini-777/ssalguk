@@ -69,10 +69,11 @@
 
 ## 시연
 
+![플로우 차트](./src/flowchart.png)
+
 ### Youtube 영상
 - https://youtu.be/biONjIrfJxQ?si=omNoNTtosELKHTZe
 
-![플로우 차트](./src/flowchart.png)
 
 ### app interface
 
