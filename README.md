@@ -27,7 +27,7 @@
     - 최근 집중력과 문해력의 문제로 상식이 부족하거나 긴 글을 읽지 못하는 사람들이 증가하고 있다는 것이 문제가 되기도 했다.
     - 또한 도파민 중독에 의한 쾌락주의는 개인의 문제로도 나타나지만, 무기력한 개인의 증가 또는 공격성이 강한 개인들이 모여 사회적 문제를 야기할 수 있다.
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/d13c8806-f8b9-47f6-9a58-8d26fa49aaf3/a60c2624-22fa-476e-9107-32ad1292fac0/Untitled.png)
+    ![참고자료 1](./src/pic1.png)
 
     
 - 서비스 의도 및 이름
@@ -45,6 +45,7 @@
 
 ## 프로젝트에 사용된 기술
 
+[시스템 구성도](./src/system_diagram.png)
 - React Native
 - Node.js
 - ChatGPT
@@ -52,9 +53,10 @@
 
 ## 시연 영상
 
+- https://youtu.be/biONjIrfJxQ?si=omNoNTtosELKHTZe
 - 상세 페이지
     - 
-- 유튭링크
+
 
 
 ## 팀원
