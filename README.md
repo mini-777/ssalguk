@@ -45,7 +45,7 @@
 
 ## 프로젝트에 사용된 기술
 
-[시스템 구성도](./src/system_diagram.png)
+![시스템 구성도](./src/system_diagram.png)
 - React Native
 - Node.js
 - ChatGPT
