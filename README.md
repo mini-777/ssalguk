@@ -45,10 +45,26 @@
 
 ## 프로젝트에 사용된 기술
 
-![시스템 구성도](./src/system_diagram.png)
-- React Native
-- Node.js
-- ChatGPT
+<img src="./src/system_diagram.png" width="400" height="200"/>
+
+### app stack
+- Framework - react native
+- development tool - expo
+- UI library - tamagui
+- Graphics Engine - react native skia
+- gpt-4 api 
+
+### admin page stack
+- Framework - Next.js 13
+- Language - TypeScript
+- Auth - NextAuth.js
+- Database - Vercel Postgres
+- Deployment - Vercel
+- Styling - Tailwind CSS
+- Components - Tremor
+- Analytics - Vercel Analytics
+- Linting - ESLint
+- Formatting - Prettier
 
 
 ## 시연 영상
